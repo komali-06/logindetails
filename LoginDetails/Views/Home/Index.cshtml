@@ -1,0 +1,43 @@
+﻿@model LoginDetails.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<script language="javascript">
+
+    function display() {
+        if ($("#txtusername").attr("value") == "") {
+            alert("Please Enter your UserName.");
+            return false;
+        } else if ($("#txtuserpassword").attr("value") == "") {
+            alert("Please enter UserPassword.");
+            return false;
+        }
+        //alert("Login Successfully");
+        return true;
+    }
+</script>
+<h3>Weather Forecast Login Form </h3>
+@using (Html.BeginForm("Index", "Home"))
+{
+    <table width="40%" cellpadding="1" cellspacing="5">
+        <tr>
+            <td colspan="2" style="color:#f00;font-size:larger">@ViewBag.Status</td>
+        </tr>
+        <tr>
+            <td align="right">User ID :</td>
+            <td>@Html.TextBoxFor(m => m.UserID, new { @style = "width:200px", @id = "txtusername" })</td>
+        </tr>
+        <tr>
+            <td align="right">Password :</td>
+            <td>@Html.PasswordFor(m => m.
+           Password, new { @style = "width:200px", @id = "txtuserpassword" })</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Login" title="login" onclick=" display();" />
+            </td>
+        </tr>
+    </table>
+}
